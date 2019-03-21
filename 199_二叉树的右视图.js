@@ -1,30 +1,18 @@
-// Leetcode 199 Binary Tree Right Side View
-var data = {
-    val: 11,
-    left: {
-      val: 7,
-      left:  { 
-        val: 5, 
-        left: {
-          val: 3,
-          left: null,  
-          right: null  
-        },  
-        right: null  
-      },
-      right:  {  
-        val: 9,  
-        left: null,  
-        right: null  
-      } 
-    },
-    right: {  
-      val: 13,  
-      left: null,  
-      right: null  
-    }  
-}
+// 给定一棵二叉树，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。
 
+// 示例:
+
+// 输入: [1,2,3,null,5,null,4]
+// 输出: [1, 3, 4]
+// 解释:
+
+//    1            <---
+//  /   \
+// 2     3         <---
+//  \     \
+//   5     4       <---
+
+const common_tree = require('./binary_tree_data.js/index.js').common_tree;
 
 var rightSideView = function(root) {
     if (root == null) {
@@ -43,7 +31,6 @@ var rightSideView = function(root) {
                 newCheckArr.push(item.left);
             }
         }
-       // console.log(newCheckArr);
         checkArr = newCheckArr;
         if (checkArr.length > 0) {
             resArr.push(checkArr[checkArr.length - 1].val);
@@ -53,4 +40,4 @@ var rightSideView = function(root) {
 };
 
 
-console.log(rightSideView(data));
+console.log(rightSideView(common_tree));
